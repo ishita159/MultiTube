@@ -1,10 +1,9 @@
 # MultiTube - No more extra tabs
 
-MultiTube is a web app made to *watch all the YoutTube videos of a playlist/channel or a mix of both on the same page*🤯.
+MultiTube is a web app made to *watch all the YoutTube videos of a playlist/channel or a mix of both on the same page*
 
-Check it out here: [MultiTube](https://getmultitube.netlify.app/)
 
-![Demo of MultiTube](./.github/demo.gif)
+
 
 You can provide a list of video links, playlist links or channel links or mix of all of them! With a click of a few buttons all of the videos from that playlist or channel can be viewed on same page, no more opening 10 tabs to keep a list of all the videos you want to watch in an evening.
 
