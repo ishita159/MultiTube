@@ -1,0 +1,281 @@
+@import "./errors.css";
+@import "./loading-animation.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Gontserrat Light";
+  src: url(../fonts/Gontserrat-Light.ttf);
+}
+
+@font-face {
+  font-family: "Gontserrat Regular";
+  src: url(../fonts/Gontserrat-Regular.ttf);
+}
+
+:root {
+  --font-size-header: 3rem;
+  --font-size-body: 1.2rem;
+  --font-regular: "Gontserrat Regular", sans-serif;
+  --font-light: "Gontserrat Light", sans-serif;
+  --text-field-width: 40rem;
+  --button-bg: #fbf7f0;
+  --button-border-radius: 8px;
+  --box-shadow-color: #555555;
+}
+
+body {
+  background: #d9e4dd;
+}
+/******************************* Header *******************************/
+header {
+  background-color: #ff4b5c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20rem;
+}
+
+.github-code {
+  position: absolute;
+  top: -87px;
+  left: -40px;
+  font-size: 2rem;
+  background-color: black;
+  padding-top: 6rem;
+  transform: rotate(-44deg);
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.github-code:hover {
+  transform: rotate(-44deg) translateY(1rem);
+}
+
+.github-code a {
+  padding: 0rem;
+  height: 100%;
+  margin-left: -0.5rem;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: var(--font-size-header);
+  margin: 2.5rem 0 3rem;
+  font-family: var(--font-regular);
+  text-shadow: 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.link-field {
+  padding: 0.3em;
+  width: var(--text-field-width);
+  font-size: var(--font-size-body);
+  font-family: var(--font-light);
+}
+
+.get-video-btn {
+  display: block;
+  border: 0;
+  cursor: pointer;
+  margin: 2.8rem auto 0;
+  padding: 0.5em;
+  background-color: var(--button-bg);
+  border-radius: var(--button-border-radius);
+  font-size: var(--font-size-body);
+  font-family: var(--font-regular);
+}
+
+/******************************* Main *******************************/
+.main-container {
+  min-height: calc(100vh - 20rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  padding: 1px;
+}
+
+.videos {
+  width: 95%;
+  margin: 5rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+  row-gap: 60px;
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  transition: all 0.3s;
+}
+
+.videoWrapper.scale-video {
+  margin: 3rem auto;
+  padding-bottom: 45%;
+  width: 80vw;
+}
+
+.videoWrapper.remove-video {
+  transform: scale(0.3);
+  opacity: 0;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.videoWrapper p {
+  font-family: var(--font-light);
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.more {
+  display: block;
+  margin: 0 auto 3rem;
+  border-radius: var(--button-border-radius);
+  font-family: var(--font-regular);
+  background-color: var(--button-bg);
+  font-size: 1.5rem;
+  padding: 0.3em 1em;
+  cursor: pointer;
+  border: 3px solid #555555;
+  transition: box-shadow 0.3s;
+  display: none;
+}
+
+.more:hover {
+  box-shadow: 2.5px 2.2px 1px var(--box-shadow-color);
+}
+
+/******************************* Video Controls *******************************/
+.remove,
+.scale {
+  display: block;
+  width: 1.3rem;
+  height: 1.3rem;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+}
+
+.remove {
+  background: url(../images/close.svg);
+  top: -1.5rem;
+  right: 0;
+}
+
+.scale {
+  background: url(../images/scale-screen.svg);
+  top: -1.5rem;
+  right: 2rem;
+}
+
+/******************************* Footer *******************************/
+footer {
+  font-family: var(--font-light);
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.6rem;
+  display: flex;
+}
+
+i:first-of-type {
+  margin-left: 0.5rem;
+}
+
+i {
+  padding: 0.3em;
+  color: white;
+}
+
+/******************************* Media queries *******************************/
+@media screen and (max-width: 1040px) {
+  .scale {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .link-field {
+    --text-field-width: 90vw;
+  }
+}
+
+@media screen and (max-width: 524px) {
+  h1 {
+    --font-size-header: 2.5rem;
+  }
+
+  .link-field {
+    padding: 0.15em;
+  }
+
+  .get-video-btn {
+    padding: 0.5em;
+    --font-size-body: 1.1rem;
+  }
+
+  .videos {
+    width: 100%;
+    padding: 0 0.7em;
+  }
+
+  .videoWrapper {
+    padding-bottom: 50%;
+    width: 95vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .videos {
+    width: 100%;
+    padding: 0;
+  }
+
+  .videoWrapper {
+    padding-bottom: 45%;
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .videoWrapper {
+    padding-bottom: 43%;
+  }
+  .github-code {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 365px) {
+  footer {
+    flex-direction: column;
+  }
+
+  .socials i:first-of-type {
+    margin: 0;
+  }
+}
